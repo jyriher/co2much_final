@@ -18,7 +18,15 @@ export class HomepageComponent implements OnInit {
 
     constructor() {
 
-        $('[data-circle-graph]').each(function () {
+        
+
+
+    }
+
+
+    ngOnInit() {
+
+    $('[data-circle-graph]').each(function () {
             const $graph = $(this),
                 percent = parseInt($graph.data('percent'), 10),
                 deg = 360 * percent / 100;
@@ -28,12 +36,6 @@ export class HomepageComponent implements OnInit {
             $graph.find('.circle-graph-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
             $graph.find('.circle-graph-percents-number').html(percent + '%');
         });
-
-
-    }
-
-
-    ngOnInit() {
 
     $(document).foundation();
     }
