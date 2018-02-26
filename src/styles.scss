@@ -1,0 +1,195 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~foundation-sites/dist/css/foundation.css";
+@import "~foundation-sites/scss/foundation.scss";
+@import "assets/custom";
+@import "~foundation-icons/foundation-icons.css";
+
+
+body {
+  background: $primary-color;
+
+}
+
+p {
+color: $primary-text;
+}
+
+.mobile-bottom-bar {
+  width: 100%;
+  height: 3.778rem;
+  background: $nav-background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+
+  .active {
+    color: #000 !important;
+  }
+
+  .footer-link {
+    flex: 1 1 auto;
+    text-align: center;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: rem-calc(40);
+    font-weight: bold;
+    padding: 0.907rem 1rem;
+
+    i.fi {
+      opacity: 0.8;
+      margin-right: rem-calc(10);
+      font-size: rem-calc(24);
+      vertical-align: middle;
+    }
+
+    &:focus,
+    &:active {
+      color: #000;
+    }
+  }
+
+  .footer-text {
+    position: relative;
+    top: 2px;
+    font-weight: bold;
+    font-size: rem-calc(14);
+    color: #FFF;
+  }
+}
+
+
+@mixin circle-graph-circle($size) {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - #{$size/2});
+  top: calc(50% - #{$size/2});
+  width: $size;
+  height: $size;
+
+}
+
+$circle-graph-size: rem-calc(180);
+$circle-graph-percent-number-size: rem-calc(24);
+$circle-graph-percent-unit-size: rem-calc(16);
+$circle-graph-background-color: $primary-color;
+$circle-graph-empty-color: $primary-color;
+$circle-graph-fill-color: $button-color;
+$circle-graph-smaller: rem-calc(130);
+
+.circle-graph {
+  width: $circle-graph-size;
+  height: $circle-graph-size;
+  border-radius: 50%;
+  background-color: $circle-graph-empty-color;
+  position: relative;
+  
+
+  &.gt-50 {
+    background-color: $circle-graph-fill-color;
+  }
+}
+
+.circle-graph-progress {
+  @include circle-graph-circle($circle-graph-size);
+  clip: rect(0, $circle-graph-size, $circle-graph-size, #{$circle-graph-size/2});
+
+  .circle-graph-progress-fill {
+    @include circle-graph-circle($circle-graph-size);
+    clip: rect(0, #{$circle-graph-size/2}, $circle-graph-size, 0);
+    background: $circle-graph-fill-color;
+    transform: rotate(60deg);
+  }
+
+  .gt-50 & {
+    clip: rect(0, #{$circle-graph-size/2}, $circle-graph-size, 0);
+
+    .circle-graph-progress-fill {
+      clip: rect(0, $circle-graph-size, $circle-graph-size, #{$circle-graph-size/2});
+      background: $circle-graph-empty-color;
+    }
+  }
+}
+.circle-graph-percents {
+  @include circle-graph-circle(#{$circle-graph-smaller});
+  background: $circle-graph-background-color;
+  text-align: center;
+  display: table;
+  z-index: 4;
+
+  .circle-graph-percents-number {
+    display: block;
+    font-size: $circle-graph-percent-number-size;
+    font-weight: bold;
+    color: $circle-graph-fill-color;
+  }
+
+  .circle-graph-percents-units {
+    display: block;
+    font-size: $circle-graph-percent-unit-size;
+    font-weight: bold;
+  }
+}
+.circle-graph-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 0;
+
+  span {
+    line-height: 1;
+  }
+}
+
+.button-icon-badge {
+  padding: 1rem 3rem;
+  border-radius: 5%;
+  background: $background-second !important;
+  width: 90%;
+
+  .badge-text {
+     margin-left: 0;
+  }
+
+  i {
+    color: $white;
+    font-size: 2.5rem;
+    margin-right: 0;
+  }
+}
+
+.homeinfo {
+    background: $background-second;
+    border-radius: 5%;
+
+    i {
+     color: $white;
+     font-size: 2.5rem;
+     padding: 2rem;
+    }
+    .info-text {
+      color: $white;
+    }
+}
+
+.homebutton {
+    border-radius: 5%;
+    background: $background-second !important;
+    
+
+    i {
+      color: white;
+      font-size: 2.5rem;
+    }
+}
+
+.reveal {
+    background: $reveal-color;
+
+    button.expanded {
+        background: $button-reveal !important;
+        color: $black;
+        border: 1px solid black;
+    }
+}

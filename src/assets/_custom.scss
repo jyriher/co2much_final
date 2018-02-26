@@ -1,0 +1,12 @@
+$primary-color: #CAE2BC;
+$nav-background: #b5c5b3;
+$button-color: #88b568;
+$primary-text: #0F5219;
+$background-second: #52D964;
+$reveal-color: #85f96b;
+$button-reveal: #64d24b;
+
+@function rem-calc($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}

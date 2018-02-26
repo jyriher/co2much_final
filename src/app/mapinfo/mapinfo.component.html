@@ -1,0 +1,83 @@
+<form>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+<div class="medium-6 cell">
+<label>
+From: <input type="text" [(ngModel)]="origin" (click)="reset()" [ngModelOptions]="{standalone: true}"> <br>
+</label>
+</div>
+</div>
+</div>
+</form>
+
+<form>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+<div class="medium-6 cell">
+<label>
+To: <input type="text" [(ngModel)]="destination" [ngModelOptions]="{standalone: true}"> <br>
+</label>
+</div>
+</div>
+</div>
+</form>
+
+
+<form>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+<div class="medium-6 cell">
+
+Form of Transportation <select (change)="selectMode($event)"> <br>
+    <option value=""></option>
+    <option value="WALKING">Walking</option>
+    <option value="BICYCLING">Bicycling</option>
+    <option value="TRANSIT">Transit</option>
+    <option value="DRIVING">Car</option>
+
+</select>
+
+<button type="button" class="success button expanded" (click)="hae()">Search</button>
+
+</div>
+</div>
+</div>
+</form>
+
+
+<!--
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="15" (mapClick)="onChoseLocation($event)">
+    <agm-marker
+            [latitude]="latitude"
+            [longitude]="longitude"
+    ></agm-marker>
+    -->
+<!--*ngIf="locationChosen"-->
+<!--
+</agm-map>
+
+<h2>Ja sit tääl näkyis ne CO2 ja kilsamäärä</h2>
+{{latitude}} <br>
+{{longitude}}
+-->
+
+<!-- <div class="reveal" id="exampleModal1" data-reveal> -->
+<agm-map *ngIf="locationChosen">
+    <sebm-google-map-directions [travelMode]="travelMode" [origin]="origin"
+                                [destination]="destination"></sebm-google-map-directions>
+</agm-map>
+
+
+<!--
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<p *ngIf="locationChosen"><button class="button" data-open="exampleModal1">Show map</button></p>
+
+-->
+
+
+
+
